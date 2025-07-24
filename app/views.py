@@ -34,12 +34,28 @@ def tarefas():
 
 @app.route('/tarefa/lista')
 def listaTarefas():
-    if request.method == 'GET':
-        pesquisa2 = request.args.get('pesquisa', '')
-    dados2 = Tarefa.query.order_by('titulo')
+    dados2 = Tarefa.query.order_by('data_envio')
+
+    pesquisa2 = request.args.get('pesquisa2', '')
+    ordenar = request.args.get('ordenar', '')
+    status = request.args.get('status', '')
     
     if pesquisa2 != '':
         dados2 = dados2.filter(Tarefa.titulo.ilike(f'%{pesquisa2}%'))
+
+    if status and status != 'Todos':
+        dados2 = dados2.filter(Tarefa.status == status)
+
+    if ordenar == 'data_desc':
+        dados2 = dados2.order_by(Tarefa.data_envio.desc())
+    elif ordenar == 'data_asc':
+        dados2 = dados2.order_by(Tarefa.data_envio.asc())
+    elif ordenar == 'titulo_az':
+        dados2 = dados2.order_by(Tarefa.titulo.asc())
+    elif ordenar == 'titulo_za':
+        dados2 = dados2.order_by(Tarefa.titulo.desc())
+    else:
+        dados2 = dados2.order_by(Tarefa.data_envio.desc())
     
     status_dict2 = {
             'a_fazer': 'A Fazer',
@@ -48,4 +64,4 @@ def listaTarefas():
         }
 
     context2 = {'dados2' : dados2.all()}
-    return render_template('tarefas_lista.html', context2=context2, status_dict2=status_dict2)
+    return render_template('tarefas_lista.html', context2=context2, status_dict2=status_dict2, status=status, ordenar=ordenar, pesquisa2=pesquisa2)

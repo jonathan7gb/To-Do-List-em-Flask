@@ -11,25 +11,25 @@
 
         
         <form action="" method="get" class="formulario-pesquisa">
-            <input type="text" name="pesquisa" class="tarefa-search" placeholder="🔍  Pesquisar Tarefa">
+            <input type="text" name="pesquisa2" class="tarefa-search" placeholder="🔍  Pesquisar Tarefa" value="{{ pesquisa2 }}" autofocus>
             <button type="submit" class="btn-pesquisa">Pesquisar</button>
         </form>
 
         <form action="" method="get" class="filtros-pesquisa">
-            <select name="ordenar" id="select-ordenar" class="select-ordenar">
-                <option disabled selected>Ordenar</option>
-                <option value="Data de Envio (Mais Recente)">Data de Envio (Mais Recente)</option>
-                <option value="Data de Envio (Mais Antigo)">Data de Envio (Mais Antigo)</option>
-                <option value="Título (A-Z)">Título (A-Z)</option>
-                <option value="Título (Z-A)">Título (Z-A)</option>
+           <select name="ordenar" id="select-ordenar" class="select-ordenar">
+                <option disabled {% if not ordenar %}selected{% endif %}>Ordenar</option>
+                <option value="data_desc" {% if ordenar == 'data_desc' %}selected{% endif %}>Data de Envio (Mais Recente)</option>
+                <option value="data_asc" {% if ordenar == 'data_asc' %}selected{% endif %}>Data de Envio (Mais Antigo)</option>
+                <option value="titulo_az" {% if ordenar == 'titulo_az' %}selected{% endif %}>Título (A-Z)</option>
+                <option value="titulo_za" {% if ordenar == 'titulo_za' %}selected{% endif %}>Título (Z-A)</option>
             </select>
 
             <select name="status" id="select-status2" class="select-status2">
-                <option disabled selected>Status</option>
-                <option value="Todos">Todos</option>
-                <option value="Pendente">Pendente</option>
-                <option value="Em Andamento">Em Andamento</option>
-                <option value="Concluída">Concluída</option>
+                <option disabled {% if not status %}selected{% endif %}>Status</option>
+                <option value="Todos" {% if status == 'Todos' %}selected{% endif %}>Todos</option>
+                <option value="a_fazer" {% if status == 'a_fazer' %}selected{% endif %}>A Fazer</option>
+                <option value="em_andamento" {% if status == 'em_andamento' %}selected{% endif %}>Em Andamento</option>
+                <option value="concluido" {% if status == 'concluido' %}selected{% endif %}>Concluído</option>
             </select>
             <button type="submit" class="btn-filtro">Aplicar Filtros</button>
         </form>
