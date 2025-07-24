@@ -34,12 +34,12 @@ def tarefas():
 
 @app.route('/tarefa/lista')
 def listaTarefas():
-    dados2 = Tarefa.query.order_by('data_envio')
-
     pesquisa2 = request.args.get('pesquisa2', '')
     ordenar = request.args.get('ordenar', '')
     status = request.args.get('status', '')
     
+    dados2 = Tarefa.query
+
     if pesquisa2 != '':
         dados2 = dados2.filter(Tarefa.titulo.ilike(f'%{pesquisa2}%'))
 
