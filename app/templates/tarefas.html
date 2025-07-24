@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% include 'header.html' %}
+
+{% block content %}
+
+<section class="pagina">
+
+    <section class="cadastrar">
+        <h2 class="title">Cadastrar Tarefa</h2>
+        <div class="container-form">
+            <form action="" method="post" class="formulario">
+                {{form.csrf_token}}
+
+                {{form.titulo.label(class="text-titulo")}}
+                {{form.titulo(class="input-titulo", placeholder="Digite o título da tarefa")}}
+
+                {{form.descricao.label(class="text-descricao")}}
+                {{form.descricao(class="input-descricao", placeholder="Digite a descrição da tarefa")}}
+
+                {{form.status.label(class="text-status")}}
+                {{form.status(class="select-status")}}
+
+                {{form.btnSubmit(class="btn-submit")}}
+            </form>
+        </div>
+    </section>
+
+    <hr class="linha">
+
+    <section class="visualizar">
+        <h2 class="title">Lista de Tarefas</h2>
+
+        
+        <div class="container-list">
+            <form action="" method="get" class="formulario-pesquisa">
+                <input type="text" name="pesquisa" class="tarefa-search" placeholder="🔍  Pesquisar Tarefa">
+                <button type="submit" class="btn-pesquisa">Pesquisar</button>
+            </form>
+            {% for linha in context.dados %}
+                      <div class="card">
+                        <h3>{{ linha.titulo }}</h3>
+                        <p>{{ linha.descricao }}</p>
+                        <p>Status: {{ linha.status }}</p>
+                        <p>Data de Criação: {{ linha.data_envio.strftime('%d/%m/%Y %H:%M') }}</p>
+                      </div>          
+            {% endfor %}
+        </div>
+    </section>
+
+</section>
+
+
+
+{% endblock %}
