@@ -273,6 +273,10 @@ footer p{
 }
 
 @media (min-width: 768px) {
+    .container-header nav ul{
+        gap: 2.5rem !important;
+    }
+
     .formulario-pesquisa{
         display: flex;
         flex-direction: row;
