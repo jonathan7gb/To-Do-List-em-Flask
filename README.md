@@ -6,8 +6,8 @@ Este é um projeto de uma lista de tarefas (To-Do List) desenvolvido com **Flask
 
 - ✅ Adicionar tarefas com título, descrição e status
 - 📋 Visualizar todas as tarefas com filtros por status, pesquisa e ordenação
-- 📝 Editar tarefas existentes ( A fazer )
-- ❌ Deletar tarefas ( A fazer )
+- 📝 Editar tarefas existentes **// Melhoria Futura**
+- ❌ Deletar tarefas **// Melhoria Futura**
 - 🔎 Filtrar por status (A Fazer, Em Andamento, Concluído)
 - 🔠 Ordenar por título (A-Z, Z-A) e por data (mais recente/mais antiga)
 
