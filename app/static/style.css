@@ -56,6 +56,33 @@ header{
     transition: all 0.5s ease-in-out !important;
 }
 
+/* =================================== */
+
+/* FOOTER */
+
+footer{
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem !important;
+}
+
+footer p{
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem !important;
+}
+
+
+
+
+
+
+
 /* MAIN INDEX*/
 
 .cards{
@@ -116,7 +143,7 @@ header{
 }
 
 .container-form{
-    width: 80vw;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -168,7 +195,7 @@ header{
 .linha{
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: 90%;
     height: 2px;
     background-color: var(--primary-color) !important;
     margin: 5rem 0 !important;
@@ -181,6 +208,7 @@ header{
     justify-content: center;
     align-items: center;
     max-width: 100%;
+    margin-bottom: 3rem !important;
 }
 
 .title{
@@ -190,18 +218,36 @@ header{
     margin-bottom: 2.5rem !important;
 }
 
+.formulario-pesquisa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+}
+
 .tarefa-search{
     width: 100%;
     padding: 0.5rem !important;
     background-color: transparent !important;
     border: 1px solid var(--primary-color) !important;
+    margin-bottom: 0.7rem !important;
+    border-radius: 5px;
+}
+
+.btn-pesquisa{
+    width: 100%;
+    background-color: var(--primary-color) !important;
+    border: none !important;
+    padding: 0.5rem 0 !important;
+    color: white !important;
     border-radius: 5px;
     margin-bottom: 1rem !important;
 }
 
 .container-list{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 90vw);
     grid-template-rows: auto;
     gap: 1rem;
     margin: 0 1rem !important;
@@ -209,4 +255,45 @@ header{
 
 .card{
     padding: 1rem !important;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3{
+    color: var(--primary-color) !important;
+    font-size: 1.4rem;
+}
+
+.linha-card{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color) !important;
+    margin: 0.7rem 0 !important;
+}
+
+@media (min-width: 768px) {
+    .formulario-pesquisa{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem !important;
+        width: 70vw;
+        margin-bottom: 2rem !important;
+    }
+
+    .tarefa-search{
+        flex: 3;
+    }
+
+    .btn-pesquisa{
+        flex: 1;
+    }
+
+    .container-form{
+        width: 50vw;
+    }
+
+    .container-list{
+        grid-template-columns: repeat(3, 25vw);
+    }
 }

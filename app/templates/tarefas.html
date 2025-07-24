@@ -32,24 +32,27 @@
         <h2 class="title">Lista de Tarefas</h2>
 
         
+        <form action="" method="get" class="formulario-pesquisa">
+            <input type="text" name="pesquisa" class="tarefa-search" placeholder="🔍  Pesquisar Tarefa">
+            <button type="submit" class="btn-pesquisa">Pesquisar</button>
+        </form>
         <div class="container-list">
-            <form action="" method="get" class="formulario-pesquisa">
-                <input type="text" name="pesquisa" class="tarefa-search" placeholder="🔍  Pesquisar Tarefa">
-                <button type="submit" class="btn-pesquisa">Pesquisar</button>
-            </form>
-            {% for linha in context.dados %}
-                      <div class="card">
-                        <h3>{{ linha.titulo }}</h3>
-                        <p>{{ linha.descricao }}</p>
-                        <p>Status: {{ linha.status }}</p>
-                        <p>Data de Criação: {{ linha.data_envio.strftime('%d/%m/%Y %H:%M') }}</p>
-                      </div>          
-            {% endfor %}
+            
+                {% for linha in context.dados %}
+                        <div class="card">
+                            <h3>{{ linha.titulo }}</h3>
+                            <hr class="linha-card">
+                            <p><strong>Descrição:</strong> {{ linha.descricao }}</p>
+                            <p><strong>Status:</strong> {{ status_dict[linha.status] }}</p>
+                            <p><strong>Data de Criação:</strong> {{ linha.data_envio.strftime('%d/%m/%Y %H:%M') }}</p>
+                        </div>          
+                {% endfor %}
+
         </div>
     </section>
 
 </section>
 
-
+{% include 'footer.html' %}
 
 {% endblock %}

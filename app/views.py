@@ -23,8 +23,13 @@ def tarefas():
     if pesquisa != '':
         dados = dados.filter(Tarefa.titulo.ilike(f'%{pesquisa}%'))
 
+    status_dict = {
+        'a_fazer': 'A Fazer',
+        'em_andamento': 'Em Andamento',
+        'concluido': 'Concluído'
+    }
     context = {'dados': dados.all()}
-    return render_template('tarefas.html', context=context, form=form)
+    return render_template('tarefas.html', context=context, form=form, status_dict = status_dict)
 
 
     
