@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% include 'header.html' %}
+
+{% block content %}
+
+<section class="pagina">
+
+    <section class="visualizar">
+        <h2 class="title mt-5">Lista de Tarefas</h2>
+
+        
+        <form action="" method="get" class="formulario-pesquisa">
+            <input type="text" name="pesquisa" class="tarefa-search" placeholder="🔍  Pesquisar Tarefa">
+            <button type="submit" class="btn-pesquisa">Pesquisar</button>
+        </form>
+
+        <form action="" method="get" class="filtros-pesquisa">
+            <select name="ordenar" id="select-ordenar" class="select-ordenar">
+                <option disabled selected>Ordenar</option>
+                <option value="Data de Envio (Mais Recente)">Data de Envio (Mais Recente)</option>
+                <option value="Data de Envio (Mais Antigo)">Data de Envio (Mais Antigo)</option>
+                <option value="Título (A-Z)">Título (A-Z)</option>
+                <option value="Título (Z-A)">Título (Z-A)</option>
+            </select>
+
+            <select name="status" id="select-status2" class="select-status2">
+                <option disabled selected>Status</option>
+                <option value="Todos">Todos</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Em Andamento">Em Andamento</option>
+                <option value="Concluída">Concluída</option>
+            </select>
+            <button type="submit" class="btn-filtro">Aplicar Filtros</button>
+        </form>
+
+        <div class="container-list">
+            
+                {% for linha in context2.dados2 %}
+                        <div class="card">
+                            <h3>{{ linha.titulo }}</h3>
+                            <hr class="linha-card">
+                            <p><strong>Descrição:</strong> {{ linha.descricao }}</p>
+                            <p><strong>Status:</strong> {{ status_dict2[linha.status] }}</p>
+                            <p><strong>Data de Criação:</strong> {{ linha.data_envio.strftime('%d/%m/%Y %H:%M') }}</p>
+                        </div>          
+                {% endfor %}
+
+        </div>
+    </section>
+
+</section>
+
+{% include 'footer.html' %}
+
+{% endblock %}

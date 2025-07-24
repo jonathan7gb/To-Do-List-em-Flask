@@ -32,4 +32,20 @@ def tarefas():
     return render_template('tarefas.html', context=context, form=form, status_dict = status_dict)
 
 
+@app.route('/tarefa/lista')
+def listaTarefas():
+    if request.method == 'GET':
+        pesquisa2 = request.args.get('pesquisa', '')
+    dados2 = Tarefa.query.order_by('titulo')
     
+    if pesquisa2 != '':
+        dados2 = dados2.filter(Tarefa.titulo.ilike(f'%{pesquisa2}%'))
+    
+    status_dict2 = {
+            'a_fazer': 'A Fazer',
+            'em_andamento': 'Em Andamento',
+            'concluido': 'Concluído'
+        }
+
+    context2 = {'dados2' : dados2.all()}
+    return render_template('tarefas_lista.html', context2=context2, status_dict2=status_dict2)
