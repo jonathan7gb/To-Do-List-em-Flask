@@ -20,6 +20,9 @@ Este é um projeto de uma lista de tarefas (To-Do List) desenvolvido com **Flask
 - HTML
 - CSS3 
 
+## 🎨 Style Guide
+- Tipografia -> Fonte usada: Space Grotesk
+- Cores -> Primária: #3E5F44 - Secundária: #5E936C - Background Color: #eefde3
 
 ## 🚀 Como executar o projeto
 
