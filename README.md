@@ -63,3 +63,15 @@ Este é um projeto de uma lista de tarefas (To-Do List) desenvolvido com **Flask
     http://127.0.0.1:5000/
    ```
 
+## Telas do Site
+- Tela Inicial
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/cb8c21d5-d85b-4398-8a78-1f5fe3aec8b6" />
+
+- Tela de Cadastro
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/85b272b6-ad75-4916-901d-3228e4cbff67" />
+
+- Tela da Lista de Tarefas
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/9857a247-fd26-447a-8422-56c3bf29de46" />
+
+
+
